@@ -49,6 +49,15 @@ namespace FAST_API_V2.Extenstions
                 if (prop is null || !prop.CanWrite) continue;
                 // var converter = TypeDescriptor.GetConverter(prop.PropertyType);
                 // var parsedVal = converter.ConvertFromInvariantString(keyVal[key]?.ToString());
+
+                object value = keyVal[key];
+
+                // Kiểm tra nếu thuộc tính là kiểu bool
+                if (prop.PropertyType == typeof(bool))
+                {
+                    // Chuyển đổi từ int sang bool
+                    value = (value is int intValue) ? (intValue != 0) : false;
+                }
                 prop.SetValue(instance, keyVal[key]);
             }
             return instance;
@@ -68,6 +77,7 @@ namespace FAST_API_V2.Extenstions
 
             return dictionary;
         }
+
 
 
     }

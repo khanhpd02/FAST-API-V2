@@ -1,6 +1,6 @@
-@FAST_API_V2_HostAddress = http://localhost:5275
+@FAST_API_V2_HostAddress = https://localhost:44364
 
-GET {{FAST_API_V2_HostAddress}}/weatherforecast/
+GET {{FAST_API_V2_HostAddress}}/get-all-driver.html
 Accept: application/json
 
 ###
